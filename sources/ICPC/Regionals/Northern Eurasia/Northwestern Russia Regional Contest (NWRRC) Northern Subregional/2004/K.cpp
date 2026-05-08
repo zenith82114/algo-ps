@@ -1,103 +1,72 @@
 /*
  * ICPC, Regionals, Northern Eurasia,
  * Northwestern Russia Regional Contest Northern Subregional 2004 K. K-th Number
- * BOJ 7469 - persistent segment tree
- * Date: 2023.1.2
+ * JUNGOL 7088
+ *
+ * merge sort tree, binary search
+ * Date: 2026.5.8
  */
 
 #include<bits/stdc++.h>
 using namespace std;
+using i64 = int64_t;
+const int MAXLGN = 19;
+const int MAXN = 1<<MAXLGN;
 
-class persistent_seg_tree {
-    struct Node {
-        int l = -1, r = -1, val = 0;
-    };
-    vector<int> roots;
-    vector<Node> nodes;
-    int N;
-    void init_util(int n, int s, int e) {
-        if (s == e) return;
-        nodes[n].l = nodes.size();
-        nodes[n].r = nodes.size() + 1;
-        nodes.emplace_back();
-        nodes.emplace_back();
-        int m = (s + e)>>1;
-        init_util(nodes[n].l, s, m);
-        init_util(nodes[n].r, m+1, e);
-    }
-    void insert_util(int pn, int n, int s, int e, int i) {
-        if (s == e) {
-            nodes[n].val++;
-            return;
-        }
-        int m = (s + e)>>1;
-        if (i <= m) {
-            nodes[n].l = nodes.size();
-            nodes[n].r = nodes[pn].r;
-            nodes.emplace_back();
-            insert_util(nodes[pn].l, nodes[n].l, s, m, i);
-        }
-        else {
-            nodes[n].l = nodes[pn].l;
-            nodes[n].r = nodes.size();
-            nodes.emplace_back();
-            insert_util(nodes[pn].r, nodes[n].r, m+1, e, i);
-        }
-        nodes[n].val = nodes[nodes[n].l].val + nodes[nodes[n].r].val;
-    }
-    int query_util(int n1, int n2, int s, int e, int k) {
-        if (s == e) return s;
-        int m = (s + e)>>1;
-        int d = nodes[nodes[n2].l].val - nodes[nodes[n1].l].val;
-        if (k <= d)
-            return query_util(nodes[n1].l, nodes[n2].l, s, m, k);
-        else
-            return query_util(nodes[n1].r, nodes[n2].r, m+1, e, k - d);
-    }
-public:
-    persistent_seg_tree(int N): N(N) {
-        roots.emplace_back(0);
-        nodes.emplace_back();
-        init_util(0, 0, N-1);
-    }
-    void insert(int i) {
-        int pn = roots.back();
-        roots.emplace_back(nodes.size());
-        nodes.emplace_back();
-        insert_util(pn, roots.back(), 0, N-1, i);
-    }
-    int query(int i, int j, int k) {
-        return query_util(roots[i-1], roots[j], 0, N-1, k);
-    }
-};
+int ms[1 + MAXLGN][MAXN];
 
-class Compressor {
-    vector<int> ar;
-public:
-    Compressor(vector<int>& data): ar(data) {
-        sort(ar.begin(), ar.end());
+int count_le(int i, int j, int x) {
+    int cnt = 0;
+    for (int h = 0; i <= j; i >>= 1, j >>= 1, ++h) {
+        if (i&1) {
+            cnt += distance(
+                ms[h] + (i << h),
+                upper_bound(ms[h] + (i << h), ms[h] + ((i + 1) << h), x)
+            );
+            ++i;
+        }
+        if (~j&1) {
+            cnt += distance(
+                ms[h] + (j << h),
+                upper_bound(ms[h] + (j << h), ms[h] + ((j + 1) << h), x)
+            );
+            --j;
+        }
     }
-    int encode(int x) {
-        return lower_bound(ar.begin(), ar.end(), x) - ar.begin();
-    }
-    int decode(int i) { return ar[i]; }
-};
+    return cnt;
+}
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
+    cin.tie(0)->sync_with_stdio(0);
 
-    int N, M; cin >> N >> M;
-    vector<int> A(N);
-    for (int& a : A) cin >> a;
+    int n, m; cin >> n >> m;
+    int N = 1, lgN = 0;
+    while (N <= n) N *= 2, ++lgN;
 
-    Compressor cmp(A);
-    persistent_seg_tree pst(N);
-    for (int& a : A) pst.insert(cmp.encode(a));
+    memset(ms[0], 0x3f, N * sizeof(int));
+    ms[0][0] = int(-1e9) - 1;
+    for (int i = 1; i <= n; ++i) cin >> ms[0][i];
 
-    while (M--) {
+    for (int h = 0; h < lgN; ++h) {
+        int d = 1<<h;
+        for (int i = 0; i < N; i += 2*d) {
+            int p = i, q = i + d, r = i;
+            while (p < i + d && q < i + 2*d) {
+                ms[h + 1][r++] = ms[h][ms[h][p] < ms[h][q] ? p++ : q++];
+            }
+            while (p < i + d)   ms[h + 1][r++] = ms[h][p++];
+            while (q < i + 2*d) ms[h + 1][r++] = ms[h][q++];
+        }
+    }
+
+    while (m--) {
         int i, j, k; cin >> i >> j >> k;
-        cout << cmp.decode(pst.query(i, j, k)) << '\n';
+        int lo = 0, hi = n;
+        while (lo + 1 < hi) {
+            int mid = (lo + hi) / 2;
+            (count_le(i, j, ms[lgN][mid]) < k ? lo : hi) = mid;
+        }
+        cout << ms[lgN][hi] << '\n';
     }
 
     return 0;
