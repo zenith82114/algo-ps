@@ -1,7 +1,7 @@
 /*
  * USA Computing Olympiad, USACO 2016 December Contest, Platinum 3. Robotic Cow Herd
  * BOJ 14166
- * JUNGOL 3988
+ * JUNGOL 4534
  *
  * Dijkstra's
  * Date: 2024.12.15
