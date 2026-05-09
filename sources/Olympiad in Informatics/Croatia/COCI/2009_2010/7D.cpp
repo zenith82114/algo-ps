@@ -1,7 +1,7 @@
 /*
  * Croatian Open Competition in Informatics, COCI 2009/2010, Contest #7 D. SVEMIR
- * BOJ 2887 6154
- * JUNGOL
+ * BOJ 2887
+ * JUNGOL 6154
  *
  * minimum spanning tree
  * Date: 2021.8.2
