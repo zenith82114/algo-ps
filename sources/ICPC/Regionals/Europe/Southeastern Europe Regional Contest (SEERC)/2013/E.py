@@ -1,7 +1,10 @@
 """
 # ICPC, Regionals, Europe, Southeastern Europe Regional Contest,
 # SEERC 2013 E. A+B
-# BOJ 9267 - number theory
+# BOJ 9267
+# JUNGOL 4226
+#
+# number theory
 # Date: 2025.11.1
 """
 

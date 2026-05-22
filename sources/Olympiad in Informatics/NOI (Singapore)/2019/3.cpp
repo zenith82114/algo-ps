@@ -1,6 +1,9 @@
 /*
  * National Olympiad in Informatics (Singapore), NOI 2019 3. Feast
- * BOJ 19672 - Aliens trick
+ * BOJ 19672
+ * JUNGOL 6240
+ *
+ * Aliens trick
  * Date: 2025.4.17
  */
 

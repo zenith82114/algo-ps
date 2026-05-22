@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * NWERC 2012 A. Admiral
- * BOJ 3640 - min cost flow
+ * BOJ 3640
+ * JUNGOL 3100
+ *
+ * min cost flow
  * Date: 2022.10.3
  */
 

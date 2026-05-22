@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Northern Eurasia, Northeastern Europe Regional Contest,
  * NEERC 2012 L. Labyrinth of the Minotaur
- * BOJ 4001 - BFS, prefix sum, binary search
+ * BOJ 4001
+ * JUNGOL 4374
+ *
+ * BFS, prefix sum, binary search
  * Date: 2024.8.13
  */
 

@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * Nordic Collegiate Programming Contest, NCPC 2016 H. Highest Tower
- * BOJ 13361 - ad-hoc; graph theory
+ * BOJ 13361
+ * JUNGOL 3634
+ *
+ * ad-hoc; graph theory
  * Date: 2025.11.10
  */
 
