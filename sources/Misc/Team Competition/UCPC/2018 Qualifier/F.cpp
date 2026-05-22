@@ -1,70 +1,75 @@
 /*
  * UCPC 2018 Qualifier F. 트리와 색깔
- * BOJ 15899
+ * JUNGOL 3602
  *
- * Euler tour, merge sort tree
- * Date: 2025.6.26
+ * Euler tour, segment tree
+ * Date: 2026.5.22
  */
 
 #include<bits/stdc++.h>
 using namespace std;
 using i64 = int64_t;
+const int MAXN = 2e5 + 4, MAXC = MAXN;
+const int MOD = 1e9 + 7;
 
-vector<int> g[200004];
-int clr[200004];
-pair<int, int> et[200004];
-int clk = 0;
-int mst[19][1<<18];
+vector<int> ctox[MAXC];
+vector<int> tree[MAXN];
+vector<int> que[MAXC];
+pair<int, int> et[MAXN];
+
+class seg_tree {
+    int N;
+    int a[4*MAXN];
+public:
+    void init(int sz) {
+        N = 1; while (N < sz) N *= 2;
+        memset(a, 0, 2*N * sizeof(int));
+    }
+    void add(int i) {
+        for (i |= N; i; i >>= 1) ++a[i];
+    }
+    int query(int i, int j) {
+        int ret = 0;
+        for (i |= N, j |= N; i <= j; i >>= 1, j >>= 1) {
+            if ( i&1) ret += a[i++];
+            if (~j&1) ret += a[j--];
+        }
+        return ret;
+    }
+} segt;
 
 void dfs(int px, int x) {
-    mst[0][clk] = clr[x];
+    static int clk = 0;
     et[x].first = clk++;
-    for (int y : g[x]) if (y != px) dfs(x, y);
-    et[x].second = clk;
-}
-
-int qry(int i, int nl, int nr, int x, int c) {
-    const auto& [xl, xr] = et[x];
-    if (xr <= nl || nr <= xl) return 0;
-    if (xl <= nl && nr <= xr) {
-        return upper_bound(mst[i] + nl, mst[i] + nr, c) - (mst[i] + nl);
-    }
-    int nm = (nl + nr)/2;
-    return qry(i - 1, nl, nm, x, c) + qry(i - 1, nm, nr, x, c);
+    for (int y : tree[x]) if (y != px) dfs(x, y);
+    et[x].second = clk - 1;
 }
 
 int main() {
     cin.tie(0)->sync_with_stdio(0);
 
-    int n, m, _; cin >> n >> m >> _;
-    for (int x = 1; x <= n; ++x) cin >> clr[x];
-    for (int e = 1; e < n; ++e) {
+    int n, m, C; cin >> n >> m >> C;
+    for (int x = 1; x <= n; ++x) {
+        int c; cin >> c;
+        ctox[c].push_back(x);
+    }
+    for (int i = 1; i < n; ++i) {
         int x, y; cin >> x >> y;
-        g[x].emplace_back(y);
-        g[y].emplace_back(x);
+        tree[x].push_back(y);
+        tree[y].push_back(x);
     }
-    memset(mst[0], 0x3f, sizeof mst[0]);
-    dfs(0, 1);
-
-    int lgn = 0; while ((1<<lgn) < n) ++lgn;
-    n = 1<<lgn;
-    for (int i = 0; i < lgn; ++i) {
-        int blk = 1<<i;
-        for (int j = 0; j < n; j += 2*blk) {
-            int p = j, q1 = j, q2 = j + blk;
-            while (q1 < j + blk && q2 < j + 2*blk) {
-                mst[i + 1][p++] = mst[i][(mst[i][q1] < mst[i][q2]? q1 : q2)++];
-            }
-            while (q1 < j +   blk) mst[i + 1][p++] = mst[i][q1++];
-            while (q2 < j + 2*blk) mst[i + 1][p++] = mst[i][q2++];
-        }
-    }
-
-    i64 ans = 0;
     while (m--) {
         int x, c; cin >> x >> c;
-        ans += qry(lgn, 0, n, x, c);
+        que[c].push_back(x);
     }
-    cout << (ans % 1'000'000'007);
+
+    dfs(0, 1);
+    int ans = 0;
+    segt.init(n + 1);
+    for (int c = 1; c <= C; ++c) {
+        for (int x : ctox[c]) segt.add(et[x].first);
+        for (int x : que[c]) ans = (ans + segt.query(et[x].first, et[x].second)) % MOD;
+    }
+    cout << ans;
     return 0;
 }
