@@ -5,7 +5,7 @@
  * slope trick
  * Date: 2022.2.25
  *
- * The variable M (commented) gives the minimized deviation. (BOJ 13323)
+ * The variable M (commented) gives the minimized deviation. (BOJ 13323, JUNGOL 3627)
  */
 
 #include<bits/stdc++.h>
