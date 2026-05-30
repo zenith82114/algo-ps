@@ -2,6 +2,10 @@
  * 한국정보올림피아드, KOI 1999, 중등부 3. 같은 길이 막대기 만들기
  * JUNGOL 1552
  *
+ * ICPC, Regionals, Europe, Central Europe Regional Contest,
+ * CERC 1995 H. Sticks
+ * JUNGOL 2170
+ *
  * backtracking, heuristics (NP-complete)
  * Date: 2026.5.24
  */
