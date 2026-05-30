@@ -1,94 +1,96 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * German Collegiate Programming Contest, GCPC 2018 M. Mountaineers
- * BOJ 16074 - parallel binary search
- * Date: 2023.1.8
+ * JUNGOL 12855
+ *
+ * disjoint sets, smaller to larger
+ * Date: 2026.5.30
  */
 
 #include<bits/stdc++.h>
 using namespace std;
+using i64 = int64_t;
+using ii = pair<int, int>;
+const int MAXQ = 1e5 + 4;
 
-#define MAX_HEIGHT 1'000'000
+int height[504][504];
+set<int> qids[504][504];
+int ans[MAXQ];
 
-class disjoint_sets {
-    vector<int> ar;
-    int find(int x) {
-        if (ar[x] < 1) return x;
-        return ar[x] = find(ar[x]);
+struct disjoint_sets {
+    ii ar[504][504];
+
+    ii _find(int x, int y) {
+        auto [px, py] = ar[x][y];
+        if (!px) return ii(x, y);
+        return ar[x][y] = _find(px, py);
     }
-public:
-    disjoint_sets() { ar.resize(512 * 512, -1); }
-    void reset() { fill(ar.begin(), ar.end(), -1); }
-    void unite(int x1, int y1, int x2, int y2) {
-        int p1 = find((x1<<9) | y1);
-        int p2 = find((x2<<9) | y2);
-        if (p1 != p2) {
-            if (ar[p1] < ar[p2]) swap(p1, p2);
-            if (ar[p1] == ar[p2]) ar[p2]--;
-            ar[p1] = p2;
+
+    void init(int n, int m) {
+        for (int x = 1; x <= n; ++x)
+        for (int y = 1; y <= m; ++y) ar[x][y] = ii(0, 0);
+    }
+
+    void unite(int x1, int y1, int x2, int y2, int h) {
+        tie(x1, y1) = _find(x1, y1); tie(x2, y2) = _find(x2, y2);
+        if (x1 == x2 && y1 == y2) return;
+
+        if (qids[x1][y1].size() < qids[x2][y2].size()) {
+            swap(x1, x2), swap(y1, y2);
         }
-    }
-    bool united(int x1, int y1, int x2, int y2) {
-        return find((x1<<9) | y1) == find((x2<<9) | y2);
-    }
-};
+        auto& t1 = qids[x1][y1], & t2 = qids[x2][y2];
+        for (int i : t2) {
+            if (t1.find(i) != t1.end()) {
+                ans[i] = h;
+                t1.erase(i);
+            }
+            else t1.emplace(i);
+        }
+        t2.clear();
 
-int H[512][512];
-vector<pair<int, int>> pls[MAX_HEIGHT +1];
+        ar[x2][y2] = ii(x1, y1);
+    }
+} dsu;
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
+    cin.tie(0)->sync_with_stdio(0);
 
-    int M, N, Q; cin >> M >> N >> Q;
-    for (int x = 1; x <= M; ++x)
-    for (int y = 1; y <= N; ++y) {
-        cin >> H[x][y];
-        pls[H[x][y]].emplace_back(x, y);
+    int n, m, q; cin >> n >> m >> q;
+    int nm = n*m;
+    vector<tuple<int, int, int>> evt; evt.reserve(nm);
+    for (int x = 1; x <= n; ++x)
+    for (int y = 1; y <= m; ++y) {
+        cin >> height[x][y];
+        evt.emplace_back(height[x][y], x, y);
+    }
+    sort(begin(evt), end(evt));
+    for (int i = 0; i < q; ++i) {
+        int x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+        if (x1 == x2 && y1 == y2) ans[i] = height[x1][y1];
+        else {
+            qids[x1][y1].emplace(i);
+            qids[x2][y2].emplace(i);
+        }
     }
 
-    struct Query { int x1, y1, x2, y2; };
-    vector<Query> que(Q);
-    vector<int> lo(Q, 1), hi(Q, MAX_HEIGHT);
-    for (int i = 0; i < Q; ++i) {
-        auto& q = que[i];
-        cin >> q.x1 >> q.y1 >> q.x2 >> q.y2;
-        if (q.x1 == q.x2 && q.y1 == q.y2)
-            lo[i] = hi[i] = H[q.x1][q.y1];
-    }
+    constexpr int dt[] {0,-1,0,1,0};
+    dsu.init(n, m);
 
-    vector<vector<int>> qls(MAX_HEIGHT +1);
-    disjoint_sets dsu;
+    for (int s = 0, e = 0; s < nm; s = e) {
+        int h = get<0>(evt[s]);
+        while (e < nm && get<0>(evt[e]) == h) ++e;
 
-    const int dx[4] = {1, -1, 0, 0};
-    const int dy[4] = {0, 0, 1, -1};
+        for (int j = s; j < e; ++j) {
+            auto [_, x, y] = evt[j];
 
-    for (int iter = 1; iter < MAX_HEIGHT; iter <<= 1) {
-        for (auto& ql : qls) ql.clear();
-
-        for (int i = 0; i < Q; ++i) if (lo[i] != hi[i])
-            qls[(lo[i] + hi[i])/2].emplace_back(i);
-
-        dsu.reset();
-        for (int mid = 1; mid <= MAX_HEIGHT; ++mid) {
-            for (const auto& [x, y] : pls[mid]) {
-                for (int k = 0; k < 4; ++k) {
-                    int nx = x + dx[k];
-                    int ny = y + dy[k];
-                    if (nx == 0 || nx > M || ny == 0 || ny > N) continue;
-                    if (H[nx][ny] <= mid) dsu.unite(x, y, nx, ny);
-                }
-            }
-            for (const int& i : qls[mid]) {
-                const auto& q = que[i];
-                if (dsu.united(q.x1, q.y1, q.x2, q.y2))
-                    hi[i] = mid;
-                else
-                    lo[i] = mid+1;
+            for (int k = 0; k < 4; ++k) {
+                int nx = x + dt[k], ny = y + dt[k+1];
+                if (nx < 1 || n < nx || ny < 1 || m < ny) continue;
+                if (height[nx][ny] <= h) dsu.unite(x, y, nx, ny, h);
             }
         }
     }
 
-    for (const int& l : lo) cout << l << '\n';
+    for (int i = 0; i < q; ++i) cout << ans[i] << '\n';
     return 0;
 }
