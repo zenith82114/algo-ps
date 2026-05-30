@@ -1,7 +1,10 @@
 """
 # ICPC, Regionals, Europe, Southeastern Europe Regional Contest,
 # SEERC 2020 A. Archeologists
-# BOJ 21905 - min cost flow, priority queue; slope trick
+# BOJ 21905
+# JUNGOL 16169
+#
+# min cost flow, priority queue; slope trick
 # Date: 2026.1.6
 """
 

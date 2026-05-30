@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * NWERC 2008 C. Cat vs. Dog
- * BOJ 3683 - bipartite matching, Konig's theorem
+ * BOJ 3683
+ * JUNGOL 15569
+ *
+ * bipartite matching, Konig's theorem
  * Date: 2022.9.22
  */
 

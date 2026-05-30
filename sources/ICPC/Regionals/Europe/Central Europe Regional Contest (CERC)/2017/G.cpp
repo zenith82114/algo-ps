@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Central Europe Regional Contest,
  * CERC 2017 G. Gambling Guide
- * BOJ 15264 - Dijkstra's
+ * BOJ 15264
+ * JUNGOL 11581
+ *
+ * Dijkstra's
  * Date: 2023.6.1
  */
 

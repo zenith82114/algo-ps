@@ -1,6 +1,9 @@
 """
 # ICPC, Regionals, Northern Eurasia, Northern Eurasia Finals 2018 F. Fractions
-# Q16665 - number theory
+# BOJ 16665
+# JUNGOL 12705
+#
+# number theory
 # Date: 2024.5.20
 """
 

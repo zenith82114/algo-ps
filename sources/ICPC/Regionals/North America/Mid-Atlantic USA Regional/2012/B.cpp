@@ -2,7 +2,10 @@
  * ICPC, Regionals, North America,
  * 2012 Mid-Atlantic USA Regional Programming Contest B. Component Testing
  * 2012 Southeast USA Regional Programming Contest B. Component Testing
- * BOJ 4698 - greedy, max-flow min-cut duality
+ * BOJ 4698
+ * JUNGOL 13934
+ *
+ * greedy, max-flow min-cut duality
  * Date: 2024.11.14
  */
 

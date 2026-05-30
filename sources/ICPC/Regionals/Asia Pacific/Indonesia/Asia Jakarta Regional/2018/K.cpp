@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Asia Pacific, Indonesia,
  * The 2018 ICPC Asia Jakarta Regional Contest K. Boomerangs
- * BOJ 16583 - DFS, greedy
+ * BOJ 16583
+ * JUNGOL 13515
+ *
+ * DFS, greedy
  * Date: 2023.1.13
  */
 

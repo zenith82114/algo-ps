@@ -2,6 +2,7 @@
  * ICPC, Regionals, Asia Pacific, Korea,
  * Asia Regional - Daejeon 2017 I. Slot Machines
  * BOJ 14959
+ * JUNGOL 11191
  *
  * KMP
  * Date: 2022.10.2

@@ -1,6 +1,7 @@
 """
 # ICPC, World Finals, ICPC World Finals 2021 H. Prehistoric Programs
 # BOJ 26137
+# JUNGOL 10860
 #
 # greedy
 # Date: 2025.6.9

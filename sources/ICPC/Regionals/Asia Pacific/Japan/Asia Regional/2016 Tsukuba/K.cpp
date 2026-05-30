@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Asia Pacific, Japan,
  * Asia Regional Contest 2016 in Tsukuba K. Black and White Boxes
- * BOJ 13409 - Hackenbush, meet in the middle
+ * BOJ 13409
+ * JUNGOL 13766
+ *
+ * Hackenbush, meet in the middle
  * Date: 2024.1.17
  */
 

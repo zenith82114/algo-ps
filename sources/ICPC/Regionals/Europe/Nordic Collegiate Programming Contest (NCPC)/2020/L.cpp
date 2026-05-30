@@ -2,7 +2,10 @@
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * Nordic Collegiate Programming Contest, NCPC 2020 L. Language Survey
  * Petrozavodsk Programming Camp, Winter 2021, Day 3: Nordic+ Contest 2020 L. Language Survey
- * BOJ 21058 - Ad hoc
+ * BOJ 21058
+ * JUNGOL 15928
+ *
+ * ad hoc
  * Date: 2023.7.16
  */
 

@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * German Collegiate Programming Contest, GCPC 2013 K. Triangles
- * BOJ 9212 - geometry
+ * BOJ 9212
+ * JUNGOL 12808
+ *
+ * geometry
  * Date: 2024.2.21
  */
 

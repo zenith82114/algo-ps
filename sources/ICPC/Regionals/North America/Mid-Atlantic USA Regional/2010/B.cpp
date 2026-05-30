@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, North America,
  * 2010 Mid-Atlantic USA Regional Programming Contest B. Balloons
- * BOJ 4716 - greedy
+ * BOJ 4716
+ * JUNGOL 13926
+ *
+ * greedy
  * Date: 2023.5.1
  */
 

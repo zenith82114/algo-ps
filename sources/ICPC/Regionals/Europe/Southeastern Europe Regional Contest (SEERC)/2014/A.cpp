@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Southeastern Europe Regional Contest,
  * SEERC 2014 A. Banks
- * BOJ 10350 - math, prefix sum
+ * BOJ 10350
+ * JUNGOL 16104
+ *
+ * math, prefix sum
  * Date: 2024.6.14
  */
 

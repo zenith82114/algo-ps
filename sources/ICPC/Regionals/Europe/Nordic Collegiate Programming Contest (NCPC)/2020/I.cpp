@@ -2,7 +2,10 @@
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * Nordic Collegiate Programming Contest, NCPC 2020 I. Infection Estimation
  * Petrozavodsk Programming Camp, Winter 2021, Day 3: Nordic+ Contest 2020 I. Infection Estimation
- * BOJ 21055 - Bayes' theorem
+ * BOJ 21055
+ * JUNGOL 15925
+ *
+ * Bayes' theorem
  * Date: 2023.7.12
  */
 

@@ -1,6 +1,8 @@
 /*
  * ICPC, Regionals, Asia Pacific, Japan, 2009 Asia Tokyo Regional Contest D. Separate Points
- * BOJ 3878 - convex hull
+ * JUNGOL 13687
+ *
+ * convex hull
  * Date: 2022.1.22
  */
 
@@ -114,9 +116,8 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);
 
-    int TC; cin >> TC;
-    while (TC--) {
-        int N1, N2; cin >> N1 >> N2;
+    int N1, N2; cin >> N1 >> N2;
+    for (; N1 | N2; cin >> N1 >> N2) {
         vector<vec2> G1(N1), G2(N2);
         for (auto& v1 : G1) cin >> v1.x >> v1.y;
         for (auto& v2 : G2) cin >> v2.x >> v2.y;

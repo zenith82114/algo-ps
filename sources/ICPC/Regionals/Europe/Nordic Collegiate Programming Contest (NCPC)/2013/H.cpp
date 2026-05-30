@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * Nordic Collegiate Programming Contest, NCPC 2013 H. Pinball
- * BOJ 9244 - sweep line, BBST
+ * BOJ 9244
+ * JUNGOL 15848
+ *
+ * sweep line, BBST
  * Date: 2025.2.1
  */
 

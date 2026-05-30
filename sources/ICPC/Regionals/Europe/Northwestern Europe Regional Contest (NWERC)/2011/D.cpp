@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * NWERC 2011 D. Piece it together
- * BOJ 3654 - 2-SAT
+ * BOJ 3654
+ * JUNGOL 15600
+ *
+ * 2-SAT
  * Date: 2024.3.12
  *
  * WARNING: MASSIVE stack usage when input is large.
@@ -13,7 +16,7 @@ using namespace std;
 
 char f[500][500];
 array<vector<int>, 1'000'000> adj, adj_rev;
-array<int, 1'000'000> entry, link, scc;
+array<int, 1'000'000> entry, lnk, scc;
 int clk, scc_id;
 stack<int> st;
 array<bool, 1'000'000> on_st;
@@ -21,17 +24,17 @@ array<bool, 1'000'000> on_st;
 void tarjan(int u) {
     clk++;
     entry[u] = clk;
-    link[u] = clk;
+    lnk[u] = clk;
     st.emplace(u); on_st[u] = true;
     for (const int& v : adj[u]) {
         if (!entry[v]) {
             tarjan(v);
-            link[u] = min(link[u], link[v]);
+            lnk[u] = min(lnk[u], lnk[v]);
         }
         else if (on_st[v])
-            link[u] = min(link[u], entry[v]);
+            lnk[u] = min(lnk[u], entry[v]);
     }
-    if (entry[u] == link[u]) {
+    if (entry[u] == lnk[u]) {
         scc_id++;
         while (st.top() != u) {
             int v = st.top();

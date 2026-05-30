@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * NWERC 2011 D. Piece it together
- * BOJ 3654 - bipartite matching
+ * BOJ 3654
+ * JUNGOL 15600
+ *
+ * bipartite matching
  * Date: 2024.3.14
  */
 

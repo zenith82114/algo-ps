@@ -1,8 +1,10 @@
 """
 # ICPC, Regionals, Asia Pacific, Japan,
 # Asia Regional Contest 2016 in Tsukuba J. Cover the Polygon with Your Disk
-# BOJ 13408 - geometry, ternary search
-# Date: 2024.1.26
+# JUNGOL 13765
+#
+# geometry, gradient descent(ascent), ternary search
+# Date: 2026.5.30
 """
 
 from math import atan2, pi, sqrt
@@ -12,7 +14,7 @@ def eval_area(p, x, y, r):
     h = []
     for i in range(n):
         (x1, y1), (x2, y2) = p[i], p[(i+1)%n]
-        x1, y1, x2, y2 = x1-x, x2-x, y1-y, y2-y
+        x1, y1, x2, y2 = x1-x, y1-y, x2-x, y2-y
         if x1*x1 + y1*y1 <= r*r:
             h.append( (x1, y1, 0) )
 
@@ -42,6 +44,7 @@ def eval_area(p, x, y, r):
             area += .5 * r*r * theta
     return area
 
+
 def eval_grad(p, x, y, r):
     eps = 1e-5
     fx1 = eval_area(p, x+eps, y, r)
@@ -55,10 +58,12 @@ def eval_grad(p, x, y, r):
     if mag < eps: return None, None
     return gx/mag, gy/mag
 
+
 def ccw(a, b, c):
     (ax, ay), (bx, by), (cx, cy) = a, b, c
     x1, x2, y1, y2 = bx-ax, cx-ax, by-ay, cy-ay
     return x1*y2 - x2*y1
+
 
 def find_bound(p, x, y, gx, gy):
     n = len(p)
@@ -68,9 +73,10 @@ def find_bound(p, x, y, gx, gy):
     while ccw(a, b, p[i]) > 0 or ccw(a, b, p[(i+1)%n]) < 0: i += 1
     (x1, y1), (x2, y2) = p[i], p[(i+1)%n]
     x1, y1, x2, y2 = x-x1, y-y1, x2-x1, y2-y1
-    return (x2*y1 - x1*y2)/(gx*y2 - gy*x2)
+    return (x2*y1 - x1*y2) / (gx*y2 - gy*x2)
 
-if __name__ == "__main__":
+
+def main() -> None:
     n, r = map(int, input().split())
     p = []
     for _ in range(n):
@@ -101,3 +107,7 @@ if __name__ == "__main__":
         ans = max(ans, max_f)
 
     print(ans)
+
+
+if __name__ == "__main__":
+    main()

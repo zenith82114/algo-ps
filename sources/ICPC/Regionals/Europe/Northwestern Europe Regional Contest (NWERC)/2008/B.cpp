@@ -1,7 +1,10 @@
 /*
  * ICPC, Regionals, Europe, Northwestern Europe Regional Contest,
  * NWERC 2008 B. Proving Equivalences
- * BOJ 3682 - SCC reduction
+ * BOJ 3682
+ * JUNGOL 15565
+ *
+ * SCC reduction
  * Date: 2023.11.21
  */
 
@@ -12,7 +15,7 @@ using namespace std;
 
 vector<int> adj[SIZE];
 int clk;
-int entry[SIZE], link[SIZE];
+int entry[SIZE], lnk[SIZE];
 stack<int> st;
 bool on_st[SIZE] {};
 int scc[SIZE];
@@ -22,17 +25,17 @@ int in_deg[SIZE] {}, out_deg[SIZE] {};
 void dfs(int x) {
     clk++;
     entry[x] = clk;
-    link[x] = clk;
+    lnk[x] = clk;
     st.emplace(x); on_st[x] = true;
     for (int y : adj[x]) {
         if (!entry[y]) {
             dfs(y);
-            link[x] = min(link[x], link[y]);
+            lnk[x] = min(lnk[x], lnk[y]);
         }
         else if (on_st[y])
-            link[x] = min(link[x], entry[y]);
+            lnk[x] = min(lnk[x], entry[y]);
     }
-    if (entry[x] == link[x]) {
+    if (entry[x] == lnk[x]) {
         scc_id++;
         while (st.top() != x) {
             int y = st.top();
