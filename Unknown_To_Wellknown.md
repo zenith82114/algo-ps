@@ -370,6 +370,7 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
 [koosaga](https://koosaga.com/349) / [maspy (Japanese)](https://maspypy.com/01-on-tree-%e4%ba%ac%e9%83%bd%e8%a6%b3%e5%85%89-train-seats)
 
   - [x] ICPC Beijing Regional Contest 2004 F. Color a Tree
+  - [x] Bergen Open 2019 G. Great GDP
   - [x] Petrozavodsk Programming Camp Summer 2019 Day 1: Songyang Chen Contest 2 K. Monster Hunter
   - [x] ICPC CERC 2013 E. Escape
   - [x] ICPC North America Qualifier 2019 F. Prospecting
