@@ -472,6 +472,7 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
 
   - [x] UCIPC 2013 B. Can of Worms
   - [x] 경기과학고등학교 나는코더다 2016 송년대회 J. 비무장 지대 (Woburn Challenge 2015-16 Round 3 - Senior Division: Lex Luthor's Landmines)
+  - [x] JOI 2016/2017 Spring Camp Day 1 B. Port Facility
   - [x] oj.uz Contest GA9 4. 전선 연결하기
 
 ## Discrete Square Root
