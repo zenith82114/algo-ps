@@ -282,7 +282,7 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
 [mango_lassi](https://codeforces.com/blog/entry/98167) / [yclock](https://youngyojun.github.io/secmem/2021/09/19/young-tableaux/)
 
   - [ ] Petrozavodsk Programming Camp Summer 2019 Day 1: Songyang Chen Contest 2 I. Three Investigators
-  - [ ] Petrozavodsk Programming Camp Winter 2020 Day 3: 300iq Petrozavodsk Contest III D. Disjoint LIS
+  - [x] Petrozavodsk Programming Camp Winter 2020 Day 3: 300iq Contest 3 D. Disjoint LIS
 
 ## Matroid Intersection
 
