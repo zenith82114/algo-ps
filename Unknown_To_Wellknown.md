@@ -354,7 +354,6 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
 
   - [x] 경기과학고등학교 나는코더다 2019 송년대회 I. 비행기 타고 가요
   - [ ] ICPC Seoul Nationalwide Internet Competition 2022 D. Flags
-  - [ ] Potyczki Algorytmiczne 2011 Round 3 A. Journeys
   - [ ] POI 2014/2015 Stage 2 B. Desert
 
 ## Tangents on Convex Polygons
@@ -474,6 +473,7 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
   - [x] 경기과학고등학교 나는코더다 2016 송년대회 J. 비무장 지대 (Woburn Challenge 2015-16 Round 3 - Senior Division: Lex Luthor's Landmines)
   - [x] JOI 2016/2017 Spring Camp Day 1 B. Port Facility
   - [x] oj.uz Contest GA9 4. 전선 연결하기
+  - [x] Potyczki Algorytmiczne 2011 Round 3 A. Journeys
 
 ## Discrete Square Root
 
