@@ -181,7 +181,7 @@ $O((V+E) \log E)$: [koosaga](https://koosaga.com/265)
 
   - [x] BOJ 15737. 일반 그래프 매칭
   - [x] Petrozavodsk Programming Camp Winter 2021 Day 5: Almost Retired Dandelion Contest, ICPC Camp Contest 2 E. Smol Vertex Cover
-  - [ ] ICPC Northern Eurasia Finals 2018 B. Bimatching
+  - [x] ICPC Northern Eurasia Finals 2018 B. Bimatching
   - [ ] Petrozavodsk Programming Camp Winter 2019 Day 1: 300iq Contest A. Angle Beats
   - [ ] BOJ 15741. 일반 그래프 최대 가중치 매칭
   - [ ] Russia Team High School Programming Contest 2020 G. Cooking
