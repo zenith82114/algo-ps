@@ -184,7 +184,6 @@ $O((V+E) \log E)$: [koosaga](https://koosaga.com/265)
   - [x] ICPC Northern Eurasia Finals 2018 B. Bimatching
   - [ ] Petrozavodsk Programming Camp Winter 2019 Day 1: 300iq Contest A. Angle Beats
   - [ ] BOJ 15741. 일반 그래프 최대 가중치 매칭
-  - [ ] Russia Team High School Programming Contest 2020 G. Cooking
   - [ ] Petrozavodsk Programming Camp Winter 2019 Day 4: Yandex Cup F. Planar Max Cut
 
 ## Palindrome Tree (eerTree)
