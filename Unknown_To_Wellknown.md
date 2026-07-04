@@ -42,13 +42,13 @@ A filled checkbox means that I have received AC for the problem on some online j
 
 [jiry_2](https://codeforces.com/blog/entry/57319) / [Errichto](https://youtu.be/wFqKgrW1IMQ) / [rdd6584](https://github.com/infossm/infossm.github.io/blob/7571d3d0ac66f7dd60f35cc4e826d20995ca1875/_posts/2019-10-19-Segment-Tree-Beats.md) / [koosaga](https://koosaga.com/307)
 
-  - [x] BOJ 17474. 수열과 쿼리 26
-  - [ ] BOJ 14899. 수열과 쿼리 19
-  - [ ] BOJ 17476. 수열과 쿼리 28
+  - [x] QOJ 18784. 수열과 쿼리 26
+  - [ ] QOJ 18777. 수열과 쿼리 19
+  - [ ] QOJ 18786. 수열과 쿼리 28
   - [ ] Petrozavodsk Programming Camp Winter 2018 Day 3: AtCoder Contest I. ADD, DIV, MAX
-  - [ ] BOJ 17473. 수열과 쿼리 25
-  - [ ] BOJ 17477. 수열과 쿼리 29
-  - [ ] BOJ 17475. 수열과 쿼리 27
+  - [ ] QOJ 18783. 수열과 쿼리 25
+  - [ ] QOJ 18787. 수열과 쿼리 29
+  - [ ] QOJ 18785. 수열과 쿼리 27
 
 ## Kinetic Segment Tree
 
@@ -68,19 +68,19 @@ Treap: [SecondThread](https://codeforces.com/blog/entry/84017)
   - [x] JAG Summer Camp 2017 Day 3 K. Permutation Period
   - [x] 전국 대학생 프로그래밍 대회 동아리 연합 UCPC 2016 A. 배열
   - [x] ICPC CERC 2007 I. Robotic Sort
-  - [x] BOJ 17607. 수열과 쿼리 31
+  - [x] QOJ 18789. 수열과 쿼리 31
   - [x] 신촌지역 대학생 프로그래밍 대회 동아리 연합 여름 대회 (SUAPC 2020) Div. 1 L. 카드 셔플
-  - [ ] BOJ 13543. 수열과 쿼리 2
+  - [ ] QOJ 18760. 수열과 쿼리 2
   - [ ] COCI 2010/2011 Contest #7 F. UPIT
   - [ ] Petrozavodsk Programming Camp Summer 2016 Day 7: Ural FU Dandelion Contest C. Subtract if Greater!
   - [ ] 2016 ACM-ICPC Asia-Manila Regional Programming Contest I. Imelda’s Shopping Spree
-  - [ ] BOJ 17486. 수열과 쿼리 30
+  - [ ] QOJ 18788. 수열과 쿼리 30
 
 ## Dynamic Tree (Link-Cut Tree, Euler Tour Tree, Top Tree)
 
 Link-Cut Tree: [imeimi](https://imeimi.tistory.com/27)
 
-  - [x] BOJ 13539. 트리와 쿼리 11
+  - [x] QOJ 18814. 트리와 쿼리 11
   - [x] Croatian OI 2009 B. OTOCI
   - [x] Coder's High 2015 Side Contest C2. 판게아 2
   - [ ] 제1회 논산 코드 페스티벌 E. 가슴 속에 무엇인가
@@ -89,11 +89,11 @@ Link-Cut Tree: [imeimi](https://imeimi.tistory.com/27)
 
 Euler Tour Tree: [PurpleCrayon](https://codeforces.com/blog/entry/102087)
 
-  - [ ] BOJ 27974. 트리와 쿼리 21
+  - [ ] QOJ 18824. 트리와 쿼리 21
 
 Top Tree: [koosaga](https://github.com/infossm/infossm.github.io/blob/master/_posts/2021-03-21-toptree.md)
 
-  - [ ] BOJ 17936. 트리와 쿼리 13
+  - [ ] QOJ 18816. 트리와 쿼리 13
   - [ ] Petrozavodsk Programming Camp Winter 2022 Day 2: Grand Prix of Daejeon J. Diameter Pair Sum
 
 ## Stern-Brocot Tree
@@ -378,7 +378,7 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
 [cgiosy](https://cgiosy.github.io/posts/fast-io)
 
   - [ ] BOJ 11921. 0.1
-  - [ ] ICPC 2017 Arab Collegiate Programming Contest J. Array Queries (cf. BOJ 17476. 수열과 쿼리 28)
+  - [ ] ICPC 2017 Arab Collegiate Programming Contest J. Array Queries (cf. QOJ 18786. 수열과 쿼리 28)
 
 ## Bitset Optimization
 
@@ -395,9 +395,9 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
 
 [jhnah917](https://justicehui.github.io/hard-algorithm/2021/11/15/simd-in-ps/)
 
-  - [ ] BOJ 14438. 수열과 쿼리 17 - $O(Q \log N)$ vs $O(NQ/8)$
+  - [ ] QOJ 18775. 수열과 쿼리 17 - $O(Q \log N)$ vs $O(NQ/8)$
   - [ ] ICPC SWERC 2010 C. Comparing answers - $O(N^2)$ vs $O(N^3/8)$
-  - [x] BOJ 13925. 수열과 쿼리 13 - $O(Q \log N)$ vs $O(NQ/8)$
+  - [x] QOJ 18771. 수열과 쿼리 13 - $O(Q \log N)$ vs $O(NQ/8)$
   - [ ] ICPC Asia Regional - Seoul 2021 L. Trio - $O(81N^2)$ vs $O(N^3/96)$ vs $O(20000N^2/512)$
 
 ## Barrett Reduction
