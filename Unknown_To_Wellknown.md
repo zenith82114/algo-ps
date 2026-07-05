@@ -333,7 +333,7 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
   - [x] ICPC 2013 Southeast USA Regional Programming Contest Division 1 H. Triangles
   - [x] Croatian Highschool Competitions in Informatics 2009 Final Exam #2 B. DVAPRAVCA
   - [x] JOI Open Contest 2017 B. Bulldozer
-  - [ ] ICPC Asia Regional - Seoul 2019 F. Quadrilaterals
+  - [x] ICPC Asia Regional - Seoul 2019 F. Quadrilaterals
   - [ ] JOI 2013/2014 Spring Camp Day 4 A. Constellation 2
   - [x] KOI 2019 2차대회 고등부 4. 고압선
 
