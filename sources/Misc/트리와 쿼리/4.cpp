@@ -2,8 +2,8 @@
  * 트리와 쿼리 4
  * QOJ 18807
  *
- * LCA (RMQ on Euler tour), centroid DnC
- * Date: 2024.5.10
+ * LCA (RMQ on Euler tour), centroid DnC, priority queue
+ * Date: 2026.7.6
  */
 
 #include<bits/stdc++.h>
@@ -76,77 +76,88 @@ void make_ct_tree(int pc, int x) {
     for (auto [y, w] : gph[c]) if (!sel[y]) make_ct_tree(c, y);
 }
 
+class max_heap {
+    priority_queue<int> heap, lazy;
+
+    void _sync() {
+        while (!heap.empty() && !lazy.empty() && heap.top() == lazy.top()) {
+            heap.pop(); lazy.pop();
+        }
+    }
+
+public:
+    void push(int x) { heap.push(x); }
+    void erase(int x) { lazy.push(x); }
+    int top() { _sync(); return heap.top(); }
+    void pop() { _sync(); heap.pop(); }
+    size_t size() { return heap.size() - lazy.size(); }
+};
+
+// subtree_dists[c] = { dist(pc, x)
+//                         ; pc is parent centroid of c
+//                         ; x is a white vertex in CT(c) }
+// max_dists[pc] = { max(subtree_dists[c]) ; pc is parent centroid of c }
+array<max_heap, MAXN> subtree_dists, max_dists;
+
+// { max_path(x) ; for all x }
+max_heap max_paths;
+
 bitset<MAXN> white;
 int white_cnt;
 
-// way[pc][c] = { dist(pc, x)
-//                ; pc, c are parent-child centroids
-//                ; x is in CT(c) and white[x] }
-// way[pc][pc] = { 0 } if white[pc], { } otherwise
-array<map<int, multiset<int> >, MAXN> way;
+int max_path(int c) {
+    int ans = -INF;
 
-// way_mx[c] = { max(way[c][*]) }
-array<multiset<int>, MAXN> way_mx;
-
-// ans[c] = answer within CT(c)
-array<int, MAXN> ans;
-
-// anss = { ans[c] ; ans[c] != -INF }
-multiset<int> anss;
-
-void update_ans(int c) {
-    if (way_mx[c].size() < 2) {
-        if (ans[c] != -INF) anss.erase(anss.find(ans[c]));
-        ans[c] = -INF;
-        return;
+    if (max_dists[c].size() > 1) {
+        int top1 = max_dists[c].top(); max_dists[c].pop();
+        int top2 = max_dists[c].top(); max_dists[c].push(top1);
+        ans = max(ans, top1 + top2);
     }
-    int tmp = *way_mx[c].rbegin() + *next(way_mx[c].rbegin());
-    if (ans[c] == -INF) {
-        ans[c] = tmp;
-        anss.emplace(tmp);
-    }
-    else if (ans[c] != tmp) {
-        anss.erase(anss.find(ans[c]));
-        ans[c] = tmp;
-        anss.emplace(tmp);
-    }
+    if (white[c]) ans = max(ans, 0);
+
+    return ans;
 }
 
-void update(int x) {
-    white.flip(x);
-    white_cnt += white[x]? 1 : -1;
-
-    int pc = x, c = x;
-    if (white[x]) {
-        for (; pc != 0; c = pc, pc = ct_par[pc]) {
-            int d = get_dist(pc, x);
-            auto& w = way[pc][c];
-
-            if (w.lower_bound(d) == w.end()) {
-                if (!w.empty()) {
-                    way_mx[pc].erase(way_mx[pc].find(*w.rbegin()));
-                }
-                way_mx[pc].emplace(d);
-                w.emplace(d);
-                update_ans(pc);
-            } else {
-                w.emplace(d);
-            }
-        }
-    } else {
-        for (; pc != 0; c = pc, pc = ct_par[pc]) {
-            int d = get_dist(pc, x);
-            auto& w = way[pc][c];
-
-            int e = *w.rbegin();
-            w.erase(w.find(d));
-            if (w.lower_bound(e) == w.end()) {
-                way_mx[pc].erase(way_mx[pc].find(e));
-                if (!w.empty()) way_mx[pc].emplace(*w.rbegin());
-                update_ans(pc);
-            }
+void init() {
+    for (int x = 1; x <= n; ++x) {
+        for (int c = x, pc = ct_par[x]; pc != 0; c = pc, pc = ct_par[pc]) {
+            subtree_dists[c].push(get_dist(pc, x));
         }
     }
+
+    for (int c = 1; c <= n; ++c) {
+        max_dists[c].push(0);
+
+        int pc = ct_par[c];
+        if (pc) max_dists[pc].push(subtree_dists[c].top());
+    }
+
+    white.set();
+    white_cnt = n;
+
+    for (int c = 1; c <= n; ++c) max_paths.push(max_path(c));
+}
+
+void toggle(int x) {
+    for (int c = x; c != 0; c = ct_par[c]) max_paths.erase(max_path(c));
+
+    white.flip(x);
+    white_cnt += white[x] ? 1 : -1;
+
+    if (white[x]) max_dists[x].push(0);
+    else max_dists[x].erase(0);
+
+    for (int c = x, pc = ct_par[x]; pc != 0; c = pc, pc = ct_par[pc]) {
+        if (subtree_dists[c].size() > 0) max_dists[pc].erase(subtree_dists[c].top());
+
+        int d = get_dist(pc, x);
+        if (white[x]) subtree_dists[c].push(d);
+        else subtree_dists[c].erase(d);
+
+        if (subtree_dists[c].size() > 0) max_dists[pc].push(subtree_dists[c].top());
+    }
+
+    for (int c = x; c != 0; c = ct_par[c]) max_paths.push(max_path(c));
 }
 
 int main() {
@@ -174,28 +185,15 @@ int main() {
         eut[i] = lvl[x] < lvl[y]? x : y;
     }
 
-    sel.reset();
     make_ct_tree(0, 1);
-
-    white.reset();
-    white_cnt = 0;
-    ans.fill(-INF);
-
-    for (int x = 1; x <= n; ++x) update(x);
+    init();
 
     int q; cin >> q;
     while (q--) {
         int op; cin >> op;
 
-        if (op&1) {
-            int x; cin >> x;
-            update(x);
-        } else {
-            if (white_cnt == 0) cout << -1;
-            else if (white_cnt == 1) cout << 0;
-            else cout << max(0, *anss.rbegin());
-            cout << '\n';
-        }
+        if (op&1) { int x; cin >> x; toggle(x); }
+        else cout << (white_cnt? max_paths.top() : -1) << '\n';
     }
 
     return 0;
