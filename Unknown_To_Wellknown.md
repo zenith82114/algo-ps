@@ -210,7 +210,6 @@ $O((V+E) \log E)$: [koosaga](https://koosaga.com/265)
 
 [koosaga](https://codeforces.com/blog/entry/106725)
 
-  - [ ] Open Cup 2019/2020 Stage 18: Grand Prix of Bytedance I. Longest Lyndon Prefix
   - [ ] ICPC CERC 2021 J. Repetitions
   - [ ] Petrozavodsk Programming Camp Summer 2018 Day 8: Yuhao Du Contest 5, Grand Prix of Zhejiang D. Decomposition
   - [ ] ICPC Seoul Nationalwide Internet Competition 2018 C. Lucid Strings
