@@ -486,7 +486,7 @@ Polynomial Division: [hyperbolic](https://hyperbolic.tistory.com/4) / [cubelover
 ## Connection Profile DP
 
   - [x] BOJ 1144. 싼 비용
-  - [ ] COCI 2010/2011 Contest #6 F. VODA
+  - [x] COCI 2010/2011 Contest #6 F. VODA
   - [ ] 신촌지역 대학생 프로그래밍 대회 동아리 연합 여름 대회 (SUAPC 2020) Div. 1 B. 꿀벌
 
 ## Mertens Trick
