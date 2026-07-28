@@ -226,6 +226,7 @@ $O((V+E) \log E)$: [koosaga](https://koosaga.com/265)
   - [x] BOJ 14882. 다항식과 쿼리
   - [x] BOJ 13428. 배열의 합
   - [x] BOJ 14176. 트리와 소수
+  - [x] Open Cup 2020/2021 Stage 14: Grand Prix of Tokyo D. Do Use FFT
   - [x] Open Cup 2020/2021 Stage 14: Grand Prix of Tokyo J. Japanese Knowledge
 
 ## Linear Recurrence by Polynomials
