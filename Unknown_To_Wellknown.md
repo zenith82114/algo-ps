@@ -163,7 +163,7 @@ $O((V+E) \log E)$: [koosaga](https://koosaga.com/265)
 
 [koosaga](https://koosaga.com/295) / [Ignasi Sau](https://www.lirmm.fr/~sau/talks/tw-Ignasi-2021.pdf)
 
-  - [ ] 2018 KAIST 8th ACM-ICPC Mock Competition C. Electronic Circuit
+  - [x] 2018 KAIST 8th ACM-ICPC Mock Competition C. Electronic Circuit
   - [ ] Petrozavodsk Programming Camp Winter 2023 Day 4: KAIST+KOI Contest, Grand Prix of Korea C. Ghost
   - [ ] 2021 신촌지역 대학생 프로그래밍 대회 동아리 연합 여름 대회 (SUAPC 2021 Summer) B. 선인장의 독립집합
   - [ ] Petrozavodsk Programming Camp Summer 2019 Day 2: 300iq Contest 2 A. Apollonian Network
