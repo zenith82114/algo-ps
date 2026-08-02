@@ -199,7 +199,7 @@ $O((V+E) \log E)$: [koosaga](https://koosaga.com/265)
 [koosaga](https://koosaga.com/314)
 
   - [ ] BOJ 16907. 서로 다른 부분 문자열 쿼리 2
-  - [ ] Petrozavodsk Programming Camp Summer 2016 Day 8: DPRK Contest J. Jong Hyok and String
+  - [x] Petrozavodsk Programming Camp Summer 2016 Day 8: DPRK Contest J. Jong Hyok and String
   - [ ] BOJ 13541. K번째 부분 문자열
   - [ ] ICPC Asia Regional - Seoul 2022 H. Longest Substring
   - [ ] BOJ 14436. 서로 다른 부분 문자열 쿼리
