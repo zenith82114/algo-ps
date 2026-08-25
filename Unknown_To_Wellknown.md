@@ -19,7 +19,7 @@ A filled checkbox means that I have received AC for the problem on some online j
   - [x] 2018 KAIST 8th ACM-ICPC Mock Competition K. Utilitarianism
   - [x] IOI 2016 Day 2 C. Aliens
   - [x] 2020 고려대학교 프로그래밍 대회. 수열 쪼개기
-  - [ ] NAIPC 2017 E. Blazing New Trails
+  - [x] NAIPC 2017 E. Blazing New Trails
   - [x] 2019 서울대학교 프로그래밍 경시대회 Division 1 D. 꽃집
   - [ ] Petrozavodsk Programming Camp Summer 2019 Day 2: 300iq Contest 2 H. Honorable Mention
   - [x] Petrozavodsk Programming Camp Winter 2019 Day 1: 300iq Contest J. Jealous Split
